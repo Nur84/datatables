@@ -156,25 +156,169 @@ function initDataTable(options) {
         });
     }
 
-    function updatePagination(filteredRecords) {
-        pagination.innerHTML = '';
-        const totalPages = Math.ceil(filteredRecords / pageSize);
+    function goToPage(currPage) {
+      currentPage = currPage;
+      fetchData();
+    }
 
-        for (let i = 0; i < totalPages; i++) {
-            const li = document.createElement('li');
-            li.className = 'page-item' + (i === currentPage ? ' active' : '');
-            const a = document.createElement('a');
-            a.className = 'page-link';
-            a.href = '#';
-            a.textContent = i + 1;
-            a.addEventListener('click', (e) => {
-                e.preventDefault();
-                currentPage = i;
-                fetchData();
-            });
-            li.appendChild(a);
-            pagination.appendChild(li);
+    // function changePage(direction) {
+    //   const maxPage = Math.ceil(totalRecords / pageSize) - 1;
+    //   currentPage = Math.max(0, Math.min(currentPage + direction, maxPage));
+    //   fetchData();
+    // }
+
+    function updatePagination(filteredRecords) {
+      pagination.innerHTML = "";
+      const totalPages = Math.ceil(filteredRecords / pageSize);
+
+      const maxVisibleButtons = 5; // Maksimal 5 tombol halaman
+      let startPage = Math.max(
+        0,
+        currentPage - Math.floor(maxVisibleButtons / 2)
+      );
+      let endPage = Math.min(totalPages, startPage + maxVisibleButtons);
+
+      // Adjust startPage jika terlalu dekat dengan akhir
+      if (endPage - startPage < maxVisibleButtons) {
+        startPage = Math.max(0, endPage - maxVisibleButtons);
+      }
+
+      // Tombol Previous
+      const prevLi = document.createElement("li");
+      prevLi.className = `page-item ${currentPage === 0 ? "disabled" : ""}`;
+      const prevA = document.createElement("a");
+      prevA.className = "page-link";
+      prevA.textContent = "Previous";
+      prevA.href = "#";
+      prevA.onclick = (event) => {
+        event.preventDefault();
+        if (currentPage > 0) {
+          currentPage--;
+          goToPage(currentPage);
+          // fetchData();
         }
+      };
+      prevLi.appendChild(prevA);
+      pagination.appendChild(prevLi);
+
+      // Tombol First
+      const firstLi = document.createElement("li");
+      firstLi.className = `page-item ${currentPage === 0 ? "disabled" : ""}`;
+      const firstA = document.createElement("a");
+      firstA.className = "page-link";
+      firstA.textContent = "1";
+      firstA.href = "#";
+      firstA.onclick = (event) => {
+        event.preventDefault();
+        if (currentPage > 0) {
+          currentPage = 0; // Pindah ke halaman pertama
+          goToPage(currentPage);
+          fetchData();
+        }
+      };
+      if (currentPage > 2) {
+        firstLi.appendChild(firstA);
+        pagination.appendChild(firstLi);
+      }
+
+      // Elipsis sebelum halaman pertama yang ditampilkan
+      if (startPage > 1) {
+        const ellipsisLi = document.createElement("li");
+        ellipsisLi.className = "page-item disabled";
+        const ellipsisSpan = document.createElement("span");
+        ellipsisSpan.className = "page-link";
+        ellipsisSpan.textContent = "...";
+        ellipsisLi.appendChild(ellipsisSpan);
+        pagination.appendChild(ellipsisLi);
+      }
+      // Tombol Halaman
+      for (let i = startPage; i < endPage; i++) {
+        const li = document.createElement("li");
+        li.className = `page-item ${i === currentPage ? "active" : ""}`;
+        const a = document.createElement("a");
+        a.className = "page-link";
+        a.textContent = i + 1;
+        a.href = "#";
+        a.onclick = (event) => {
+          event.preventDefault();
+          currentPage = i; // Pastikan currentPage diubah sesuai halaman
+          // currentPage = Math.max(0, currentPage); // Hindari nilai negatif
+          // const start = currentPage * pageSize;
+          goToPage(i);
+          // fetchData();
+        };
+        li.appendChild(a);
+        pagination.appendChild(li);
+      }
+
+      // Elipsis setelah halaman terakhir yang ditampilkan
+      if (endPage < totalPages) {
+        const ellipsisLi = document.createElement("li");
+        ellipsisLi.className = "page-item disabled";
+        const ellipsisSpan = document.createElement("span");
+        ellipsisSpan.className = "page-link";
+        ellipsisSpan.textContent = "...";
+        ellipsisLi.appendChild(ellipsisSpan);
+        pagination.appendChild(ellipsisLi);
+      }
+
+      // Tombol Last
+      const lastLi = document.createElement("li");
+      lastLi.className = `page-item ${
+        currentPage === totalPages - 1 ? "disabled" : ""
+      }`;
+      const lastA = document.createElement("a");
+      lastA.className = "page-link";
+      lastA.textContent = totalPages;
+      lastA.href = "#";
+      lastA.onclick = (event) => {
+        event.preventDefault();
+        if (currentPage < totalPages - 1) {
+          currentPage = totalPages - 1; // Pindah ke halaman terakhir
+          goToPage(currentPage);
+          fetchData();
+        }
+      };
+      if (currentPage < totalPages - 3) {
+        lastLi.appendChild(lastA);
+        pagination.appendChild(lastLi);
+      }
+
+      // Tombol Next
+      const nextLi = document.createElement("li");
+      nextLi.className = `page-item ${
+        currentPage === totalPages - 1 ? "disabled" : ""
+      }`;
+      const nextA = document.createElement("a");
+      nextA.className = "page-link";
+      nextA.textContent = "Next";
+      nextA.href = "#";
+      nextA.onclick = (event) => {
+        event.preventDefault();
+        if (currentPage < totalPages - 1) {
+          currentPage++;
+          goToPage(currentPage);
+          // fetchData();
+        }
+      };
+      nextLi.appendChild(nextA);
+      pagination.appendChild(nextLi);
+
+      // for (let i = 0; i < totalPages; i++) {
+      //     const li = document.createElement('li');
+      //     li.className = 'page-item' + (i === currentPage ? ' active' : '');
+      //     const a = document.createElement('a');
+      //     a.className = 'page-link';
+      //     a.href = '#';
+      //     a.textContent = i + 1;
+      //     a.addEventListener('click', (e) => {
+      //         e.preventDefault();
+      //         currentPage = i;
+      //         fetchData();
+      //     });
+      //     li.appendChild(a);
+      //     pagination.appendChild(li);
+      // }
     }
 
     function updateTableInfo(filtered, displayed, total) {
