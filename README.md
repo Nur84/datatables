@@ -62,9 +62,7 @@ Buat elemen-elemen berikut di HTML:
 <button id="exportPdfBtn">Export PDF</button>
 
 <!-- Filter kustom (opsional) -->
-<select id="programStudiFilter">...</select>
-<select id="tahunMasukFilter">...</select>
-<select id="statusFilter">...</select>
+<select id="idElementFilter">...</select>
 ```
 
 ### 3. Inisialisasi
@@ -85,12 +83,10 @@ initDataTable({
   apiUrl: './data.json',
   hasAction: true,
   customFilters: [
-    '#programStudiFilter',
-    '#tahunMasukFilter',
-    '#statusFilter'
+    '#idElementFilter'
   ],
   actionButtons: (item) => {
-    return `<button class="btn btn-primary btn-sm">Edit</button>`;
+    return `<button class="btn btn-primary btn-sm" onclick="actionKlick()">Edit</button>`;
   }
 });
 ```
@@ -136,4 +132,4 @@ Lisensi bebas digunakan, dimodifikasi, dan dikembangkan lebih lanjut. ❤️
 
 ## 🙌 Kontributor
 
-- [Nama Anda](https://github.com/username)
+- [Nurdiansah](https://github.com/Nur84)
