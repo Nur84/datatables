@@ -1,4 +1,3 @@
-
 # datatable_helper.js
 
 `datatable_helper.js` adalah library JavaScript ringan untuk membuat **DataTable** tanpa ketergantungan pada **jQuery**. Library ini mendukung **paginasi**, **pencarian**, **filter kustom**, serta **ekspor data** ke **CSV**, **Excel**, dan **PDF**, menggunakan data yang didapatkan via **AJAX**.
@@ -37,10 +36,20 @@ Library ini membutuhkan response dengan format JSON seperti berikut:
 ## 🚀 Cara Menggunakan
 
 ### 1. Sertakan Script
+
 Pastikan Anda sudah menyertakan `datatable_helper.js` di HTML Anda:
 
 ```html
 <script src="js/datatable_helper.js"></script>
+```
+
+Untuk mengaktifkan fitur eksport ke Excel dan PDF tambahkan script berikut (opsional):
+
+```html
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
 ```
 
 ### 2. Siapkan Elemen HTML
@@ -62,7 +71,9 @@ Buat elemen-elemen berikut di HTML:
 <button id="exportPdfBtn">Export PDF</button>
 
 <!-- Filter kustom (opsional) -->
-<select id="idElementFilter">...</select>
+<select id="idElementFilter">
+  ...
+</select>
 ```
 
 ### 3. Inisialisasi
@@ -70,24 +81,22 @@ Buat elemen-elemen berikut di HTML:
 Gunakan fungsi `initDataTable()` dengan konfigurasi seperti berikut:
 
 ```javascript
-initDataTable({ 
-  tableId: '#dataTable',
-  paginationId: '#pagination',
-  searchInputId: '#searchInput',
-  infoRowRangeId: '#infoRowRange',
-  infoFilteredId: '#infoRowRange', // gunakan elemen yang sama atau berbeda
-  pageSizeSelectId: '#pageSizeSelect',
-  exportCSVButtonId: '#exportCsvBtn',
-  exportExcelButtonId: '#exportExcelBtn',
-  exportPDFButtonId: '#exportPdfBtn',
-  apiUrl: './data.json',
+initDataTable({
+  tableId: "#dataTable",
+  paginationId: "#pagination",
+  searchInputId: "#searchInput",
+  infoRowRangeId: "#infoRowRange",
+  infoFilteredId: "#infoRowRange", // gunakan elemen yang sama atau berbeda
+  pageSizeSelectId: "#pageSizeSelect",
+  exportCSVButtonId: "#exportCsvBtn",
+  exportExcelButtonId: "#exportExcelBtn",
+  exportPDFButtonId: "#exportPdfBtn",
+  apiUrl: "./data.json",
   hasAction: true,
-  customFilters: [
-    '#idElementFilter'
-  ],
+  customFilters: ["#idElementFilter"],
   actionButtons: (item) => {
     return `<button class="btn btn-primary btn-sm" onclick="actionKlick()">Edit</button>`;
-  }
+  },
 });
 ```
 
@@ -95,21 +104,21 @@ initDataTable({
 
 ## 🧩 Opsi Konfigurasi
 
-| Opsi                 | Tipe       | Deskripsi |
-|----------------------|------------|-----------|
-| `tableId`            | `string`   | ID dari elemen `<table>` |
-| `paginationId`       | `string`   | ID elemen untuk pagination |
-| `searchInputId`      | `string`   | ID input pencarian |
-| `infoRowRangeId`     | `string`   | ID untuk menampilkan info jumlah data |
-| `infoFilteredId`     | `string`   | ID untuk info hasil pencarian (bisa sama dengan `infoRowRangeId`) |
-| `pageSizeSelectId`   | `string`   | ID `<select>` jumlah item per halaman |
-| `exportCSVButtonId`  | `string`   | ID tombol ekspor CSV |
-| `exportExcelButtonId`| `string`   | ID tombol ekspor Excel |
-| `exportPDFButtonId`  | `string`   | ID tombol ekspor PDF |
-| `apiUrl`             | `string`   | URL untuk fetch data JSON |
-| `hasAction`          | `boolean`  | Tambahkan kolom aksi |
-| `customFilters`      | `string[]` | ID filter tambahan (opsional) |
-| `actionButtons`      | `function` | Fungsi yang mengembalikan HTML tombol aksi |
+| Opsi                  | Tipe       | Deskripsi                                                         |
+| --------------------- | ---------- | ----------------------------------------------------------------- |
+| `tableId`             | `string`   | ID dari elemen `<table>`                                          |
+| `paginationId`        | `string`   | ID elemen untuk pagination                                        |
+| `searchInputId`       | `string`   | ID input pencarian                                                |
+| `infoRowRangeId`      | `string`   | ID untuk menampilkan info jumlah data                             |
+| `infoFilteredId`      | `string`   | ID untuk info hasil pencarian (bisa sama dengan `infoRowRangeId`) |
+| `pageSizeSelectId`    | `string`   | ID `<select>` jumlah item per halaman                             |
+| `exportCSVButtonId`   | `string`   | ID tombol ekspor CSV                                              |
+| `exportExcelButtonId` | `string`   | ID tombol ekspor Excel                                            |
+| `exportPDFButtonId`   | `string`   | ID tombol ekspor PDF                                              |
+| `apiUrl`              | `string`   | URL untuk fetch data JSON                                         |
+| `hasAction`           | `boolean`  | Tambahkan kolom aksi                                              |
+| `customFilters`       | `string[]` | ID filter tambahan (opsional)                                     |
+| `actionButtons`       | `function` | Fungsi yang mengembalikan HTML tombol aksi                        |
 
 ---
 
