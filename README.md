@@ -1,24 +1,25 @@
+
 # datatable_helper.js
 
-`datatable_helper.js` adalah library JavaScript ringan untuk membuat **DataTable** tanpa ketergantungan pada **jQuery**. Library ini mendukung **paginasi**, **pencarian**, **filter kustom**, serta **ekspor data** ke **CSV**, **Excel**, dan **PDF**, menggunakan data yang didapatkan via **AJAX**.
+`datatable_helper.js` is a lightweight JavaScript library designed to create **DataTables** without relying on **jQuery**. This library supports **pagination**, **search**, **custom filters**, and **data export** to **CSV**, **Excel**, and **PDF**, using data retrieved via **AJAX**.
 
 ---
 
-## 📦 Fitur
+## 📦 Features
 
-- Tanpa jQuery
-- Paginasi dinamis
-- Input pencarian
-- Filter kustom
-- Ekspor ke CSV, Excel, dan PDF
-- Kolom aksi kustom
-- Struktur data API sederhana
+- No jQuery dependency
+- Dynamic pagination
+- Search input
+- Custom filters
+- Export to CSV, Excel, and PDF
+- Custom action columns
+- Simple API data structure
 
 ---
 
-## ⚙️ Format Response Data AJAX
+## ⚙️ AJAX Response Data Format
 
-Library ini membutuhkan response dengan format JSON seperti berikut:
+This library requires a JSON-formatted response as shown below:
 
 ```json
 {
@@ -26,24 +27,24 @@ Library ini membutuhkan response dengan format JSON seperti berikut:
   "recordsFiltered": 1,
   "start": 0,
   "data": [
-    // array data baris
+    // array of row data
   ]
 }
 ```
 
 ---
 
-## 🚀 Cara Menggunakan
+## 🚀 How to Use
 
-### 1. Sertakan Script
+### 1. Include the Script
 
-Pastikan Anda sudah menyertakan `datatable_helper.js` di HTML Anda:
+Ensure you include `datatable_helper.js` in your HTML file:
 
 ```html
 <script src="js/datatable_helper.js"></script>
 ```
 
-Untuk mengaktifkan fitur eksport ke Excel dan PDF tambahkan script berikut (opsional):
+To enable export functionality for Excel and PDF, optionally include the following scripts:
 
 ```html
 <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
@@ -52,9 +53,9 @@ Untuk mengaktifkan fitur eksport ke Excel dan PDF tambahkan script berikut (opsi
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
 ```
 
-### 2. Siapkan Elemen HTML
+### 2. Prepare HTML Elements
 
-Buat elemen-elemen berikut di HTML:
+Create the following elements in your HTML:
 
 ```html
 <table id="dataTable"></table>
@@ -70,15 +71,15 @@ Buat elemen-elemen berikut di HTML:
 <button id="exportExcelBtn">Export Excel</button>
 <button id="exportPdfBtn">Export PDF</button>
 
-<!-- Filter kustom (opsional) -->
+<!-- Optional custom filter -->
 <select id="idElementFilter">
   ...
 </select>
 ```
 
-### 3. Inisialisasi
+### 3. Initialization
 
-Gunakan fungsi `initDataTable()` dengan konfigurasi seperti berikut:
+Use the `initDataTable()` function with a configuration object as follows:
 
 ```javascript
 initDataTable({
@@ -86,7 +87,7 @@ initDataTable({
   paginationId: "#pagination",
   searchInputId: "#searchInput",
   infoRowRangeId: "#infoRowRange",
-  infoFilteredId: "#infoRowRange", // gunakan elemen yang sama atau berbeda
+  infoFilteredId: "#infoRowRange", // may use the same or a different element
   pageSizeSelectId: "#pageSizeSelect",
   exportCSVButtonId: "#exportCsvBtn",
   exportExcelButtonId: "#exportExcelBtn",
@@ -102,43 +103,43 @@ initDataTable({
 
 ---
 
-## 🧩 Opsi Konfigurasi
+## 🧩 Configuration Options
 
-| Opsi                  | Tipe       | Deskripsi                                                         |
-| --------------------- | ---------- | ----------------------------------------------------------------- |
-| `tableId`             | `string`   | ID dari elemen `<table>`                                          |
-| `paginationId`        | `string`   | ID elemen untuk pagination                                        |
-| `searchInputId`       | `string`   | ID input pencarian                                                |
-| `infoRowRangeId`      | `string`   | ID untuk menampilkan info jumlah data                             |
-| `infoFilteredId`      | `string`   | ID untuk info hasil pencarian (bisa sama dengan `infoRowRangeId`) |
-| `pageSizeSelectId`    | `string`   | ID `<select>` jumlah item per halaman                             |
-| `exportCSVButtonId`   | `string`   | ID tombol ekspor CSV                                              |
-| `exportExcelButtonId` | `string`   | ID tombol ekspor Excel                                            |
-| `exportPDFButtonId`   | `string`   | ID tombol ekspor PDF                                              |
-| `apiUrl`              | `string`   | URL untuk fetch data JSON                                         |
-| `hasAction`           | `boolean`  | Tambahkan kolom aksi                                              |
-| `customFilters`       | `string[]` | ID filter tambahan (opsional)                                     |
-| `actionButtons`       | `function` | Fungsi yang mengembalikan HTML tombol aksi                        |
+| Option                | Type       | Description                                                           |
+|----------------------|------------|-----------------------------------------------------------------------|
+| `tableId`            | `string`   | ID of the `<table>` element                                           |
+| `paginationId`       | `string`   | ID of the pagination element                                          |
+| `searchInputId`      | `string`   | ID of the search input                                                |
+| `infoRowRangeId`     | `string`   | ID for displaying total row count information                         |
+| `infoFilteredId`     | `string`   | ID for displaying filtered result info (can be same as `infoRowRangeId`) |
+| `pageSizeSelectId`   | `string`   | ID of the `<select>` element for items per page                       |
+| `exportCSVButtonId`  | `string`   | ID of the CSV export button                                           |
+| `exportExcelButtonId`| `string`   | ID of the Excel export button                                         |
+| `exportPDFButtonId`  | `string`   | ID of the PDF export button                                           |
+| `apiUrl`             | `string`   | URL to fetch JSON data                                                |
+| `hasAction`          | `boolean`  | Adds an action column                                                 |
+| `customFilters`      | `string[]` | IDs of additional filters (optional)                                  |
+| `actionButtons`      | `function` | Function that returns HTML content for action buttons                 |
 
 ---
 
-## 📁 Struktur Folder (Opsional)
+## 📁 Folder Structure (Optional)
 
 ```text
 📁 js/
   └── datatable_helper.js
 📄 index.html
-📄 data.json (simulasi API)
+📄 data.json (API simulation)
 ```
 
 ---
 
-## 📄 Lisensi
+## 📄 License
 
-Lisensi bebas digunakan, dimodifikasi, dan dikembangkan lebih lanjut. ❤️
+Free to use, modify, and further develop. ❤️
 
 ---
 
-## 🙌 Kontributor
+## 🙌 Contributor
 
 - [Nurdiansah](https://github.com/Nur84)
